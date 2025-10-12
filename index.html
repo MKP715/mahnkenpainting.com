@@ -101,7 +101,7 @@
     <meta name="msapplication-tap-highlight" content="no">
     
     <!-- LinkedIn Tags -->
-    <meta property="og:see_also" content="https://cca.rowlettchamber.com/mahnken-painting-more-__1_157_10009561_memberprofile2.aspx">
+    <meta property="og:see_also" content="https://cca.rowlettchamber.com/mahnken-painting-more-__1_162_10009561_memberprofile2.aspx">
     
     <!-- Pinterest Tags -->
     <meta name="pinterest-rich-pin" content="true">
@@ -151,7 +151,7 @@
       },
       "sameAs": [
         "https://www.facebook.com/share/17FGWWyKcs/",
-        "https://cca.rowlettchamber.com/mahnken-painting-more-__1_157_10009561_memberprofile2.aspx"
+        "https://cca.rowlettchamber.com/mahnken-painting-more-__1_162_10009561_memberprofile2.aspx"
       ],
       "areaServed": [
         {
@@ -298,6 +298,93 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+
+        /* Mobile Menu Styles */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: #1f2937;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 3px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: white;
+            z-index: 999;
+            padding: 80px 20px 20px;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            display: block;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 36px;
+            cursor: pointer;
+            color: #1f2937;
+        }
+
+        .mobile-nav-link {
+            display: block;
+            padding: 15px 20px;
+            font-size: 20px;
+            font-weight: 600;
+            color: #1f2937;
+            border-bottom: 1px solid #e5e7eb;
+            transition: all 0.3s;
+        }
+
+        .mobile-nav-link:hover {
+            background: #f3f4f6;
+            color: #f59e0b;
+            padding-left: 30px;
+        }
+
+        @media (max-width: 1024px) {
+            .desktop-nav {
+                display: none;
+            }
+            
+            .hamburger {
+                display: flex;
+            }
         }
 
         /* Interactive House Game */
@@ -516,23 +603,45 @@
 </head>
 <body class="bg-gray-50">
 
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+        <span class="mobile-menu-close" id="mobile-menu-close">&times;</span>
+        <div class="flex flex-col gap-2">
+            <button class="mobile-nav-link" data-target="home">🏠 Home</button>
+            <button class="mobile-nav-link" data-target="services">🔧 Services</button>
+            <button class="mobile-nav-link" data-target="gallery">🖼️ Gallery</button>
+            <button class="mobile-nav-link" data-target="testimonials">⭐ Reviews</button>
+            <button class="mobile-nav-link" data-target="about">ℹ️ About</button>
+            <button class="mobile-nav-link" data-target="contact">📞 Contact</button>
+        </div>
+    </div>
+
     <!-- Header -->
     <header class="bg-white shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4">
-            <div class="flex flex-col lg:flex-row justify-between items-center gap-4">
+            <div class="flex justify-between items-center">
                 <button class="nav-link flex items-center gap-3 cursor-pointer" data-target="home">
-                    <span class="text-5xl">🎨</span>
+                    <span class="text-4xl lg:text-5xl">🎨</span>
                     <div class="text-left">
-                        <h1 class="text-2xl lg:text-3xl font-bold text-gray-900 hover:text-amber-600 transition">Mahnken Painting & More</h1>
-                        <p class="text-sm text-gray-600">Chamber Accredited Professional</p>
+                        <h1 class="text-xl lg:text-3xl font-bold text-gray-900 hover:text-amber-600 transition">Mahnken Painting & More</h1>
+                        <p class="text-xs lg:text-sm text-gray-600">Chamber Accredited Professional</p>
                     </div>
                 </button>
-                <div class="flex flex-wrap justify-center gap-2 lg:gap-4">
+                
+                <!-- Desktop Navigation -->
+                <div class="desktop-nav flex flex-wrap justify-center gap-2 lg:gap-4">
                     <button class="nav-link px-4 py-2 font-semibold text-gray-700 hover:text-amber-600 transition" data-target="services">Services</button>
                     <button class="nav-link px-4 py-2 font-semibold text-gray-700 hover:text-amber-600 transition" data-target="gallery">Gallery</button>
                     <button class="nav-link px-4 py-2 font-semibold text-gray-700 hover:text-amber-600 transition" data-target="testimonials">Reviews</button>
                     <button class="nav-link px-4 py-2 font-semibold text-gray-700 hover:text-amber-600 transition" data-target="about">About</button>
                     <button class="nav-link px-4 py-2 font-semibold text-gray-700 hover:text-amber-600 transition" data-target="contact">Contact</button>
+                </div>
+
+                <!-- Mobile Hamburger -->
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
             </div>
         </nav>
@@ -543,18 +652,18 @@
         <!-- Home Section -->
         <section id="home" class="page-section active">
             <!-- Hero -->
-            <div class="relative rounded-3xl overflow-hidden shadow-2xl mb-12 h-[600px]">
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl mb-12 h-[400px] lg:h-[600px]">
                 <img src="https://lh3.googleusercontent.com/d/1N-nBO1WlEUxPm9S4HBHgiV4wQ0Vtqsq0" alt="Professional Painting Services" class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40 flex items-center">
-                    <div class="text-white px-8 lg:px-16 max-w-3xl">
-                        <h2 class="text-5xl lg:text-7xl font-extrabold mb-4 leading-tight">Transform Your Space</h2>
-                        <p class="text-2xl lg:text-3xl font-light mb-6 italic">Coloring Your World, One Brushstroke at a Time</p>
-                        <div class="flex flex-wrap gap-4 mb-6">
-                            <span class="bg-green-500 text-white px-6 py-3 rounded-full font-bold shadow-lg"><span class="text-2xl">✓</span> Licensed & Insured</span>
-                            <span class="bg-blue-500 text-white px-6 py-3 rounded-full font-bold shadow-lg"><span class="text-2xl">✓</span> Chamber Accredited</span>
-                            <span class="bg-yellow-500 text-gray-900 px-6 py-3 rounded-full font-bold shadow-lg"><span class="text-2xl">⭐</span> 5-Star Service</span>
+                    <div class="text-white px-6 lg:px-16 max-w-3xl">
+                        <h2 class="text-3xl lg:text-7xl font-extrabold mb-4 leading-tight">Transform Your Space</h2>
+                        <p class="text-lg lg:text-3xl font-light mb-6 italic">Coloring Your World, One Brushstroke at a Time</p>
+                        <div class="flex flex-wrap gap-2 lg:gap-4 mb-6">
+                            <span class="bg-green-500 text-white px-3 lg:px-6 py-2 lg:py-3 rounded-full text-sm lg:text-base font-bold shadow-lg"><span class="text-lg lg:text-2xl">✓</span> Licensed & Insured</span>
+                            <span class="bg-blue-500 text-white px-3 lg:px-6 py-2 lg:py-3 rounded-full text-sm lg:text-base font-bold shadow-lg"><span class="text-lg lg:text-2xl">✓</span> Chamber Accredited</span>
+                            <span class="bg-yellow-500 text-gray-900 px-3 lg:px-6 py-2 lg:py-3 rounded-full text-sm lg:text-base font-bold shadow-lg"><span class="text-lg lg:text-2xl">⭐</span> 5-Star Service</span>
                         </div>
-                        <button class="nav-link bg-gradient-to-r from-amber-500 to-orange-600 text-white px-10 py-4 rounded-full text-xl font-bold shadow-lg hover:shadow-xl hover:from-amber-600 hover:to-orange-700 transition-all transform hover:scale-105" data-target="contact">
+                        <button class="nav-link bg-gradient-to-r from-amber-500 to-orange-600 text-white px-6 lg:px-10 py-3 lg:py-4 rounded-full text-base lg:text-xl font-bold shadow-lg hover:shadow-xl hover:from-amber-600 hover:to-orange-700 transition-all transform hover:scale-105" data-target="contact">
                             Get Your Free Estimate →
                         </button>
                     </div>
@@ -562,10 +671,10 @@
             </div>
 
             <!-- Chamber Accreditation -->
-            <div class="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl p-8 mb-12 text-white text-center shadow-xl">
-                <h3 class="text-3xl font-bold mb-4">🏆 Proud Chamber Member</h3>
-                <p class="text-xl mb-4">Officially listed and accredited by both:</p>
-                <div class="flex flex-wrap justify-center gap-6">
+            <div class="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl p-6 lg:p-8 mb-12 text-white text-center shadow-xl">
+                <h3 class="text-2xl lg:text-3xl font-bold mb-4">🏆 Proud Chamber Member</h3>
+                <p class="text-lg lg:text-xl mb-4">Officially listed and accredited by both:</p>
+                <div class="flex flex-col lg:flex-row justify-center gap-6">
                     <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-6 flex-1 min-w-[250px]">
                         <div class="text-4xl mb-2">🏛️</div>
                         <h4 class="font-bold text-xl mb-2">Rowlett Chamber of Commerce</h4>
@@ -579,15 +688,17 @@
                 </div>
             </div>
 
-            <!-- Professional Image -->
+            <!-- Professional Image - Updated Image -->
             <div class="rounded-3xl overflow-hidden shadow-xl mb-12">
-                <img src="https://rowlettchamber.com/wp-content/uploads/2025/04/Rowlett-New-Logo-White.png" alt="Professional painter at work" class="w-full h-auto">
+                <a href="https://cca.rowlettchamber.com/mahnken-painting-more-__1_162_10009561_memberprofile2.aspx" target="_blank">
+                    <img src="https://rowlettchamber.com/wp-content/uploads/2025/04/Rowlett-New-Logo-White.png" alt="Rowlett Chamber of Commerce" class="w-full h-auto bg-gradient-to-r from-blue-600 to-indigo-600 p-12">
+                </a>
             </div>
 
             <!-- Interactive Paint Game -->
-            <div class="bg-white rounded-3xl shadow-xl p-8 mb-12">
-                <h3 class="text-4xl font-bold text-center mb-4 gradient-text">Try Our Interactive Color Visualizer!</h3>
-                <p class="text-center text-gray-600 mb-8 text-lg">Click balloons to grab colors, then paint different parts of the house to see your vision come to life!</p>
+            <div class="bg-white rounded-3xl shadow-xl p-6 lg:p-8 mb-12">
+                <h3 class="text-2xl lg:text-4xl font-bold text-center mb-4 gradient-text">Try Our Interactive Color Visualizer!</h3>
+                <p class="text-center text-gray-600 mb-8 text-base lg:text-lg">Click balloons to grab colors, then paint different parts of the house to see your vision come to life!</p>
                 
                 <div id="house-container" class="mb-6">
                     <svg id="house-svg" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
@@ -608,17 +719,17 @@
                         <line x1="190" y1="130" x2="230" y2="130" stroke="#64748b" stroke-width="2"/>
                     </svg>
                     
-                    <div id="color-info" class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg hidden">
-                        <div class="flex items-center gap-3">
-                            <span class="font-semibold text-gray-700">Selected:</span>
-                            <div id="color-preview" class="w-10 h-10 rounded-full border-4 border-white shadow-md"></div>
+                    <div id="color-info" class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-4 lg:px-6 py-2 lg:py-3 shadow-lg hidden">
+                        <div class="flex items-center gap-2 lg:gap-3">
+                            <span class="font-semibold text-gray-700 text-sm lg:text-base">Selected:</span>
+                            <div id="color-preview" class="w-8 lg:w-10 h-8 lg:h-10 rounded-full border-4 border-white shadow-md"></div>
                         </div>
                     </div>
                 </div>
 
-                <p id="game-msg" class="text-center text-lg font-medium text-gray-700 mb-4">🎈 Click a balloon to select your paint color!</p>
+                <p id="game-msg" class="text-center text-base lg:text-lg font-medium text-gray-700 mb-4">🎈 Click a balloon to select your paint color!</p>
                 <div class="flex justify-center gap-4">
-                    <button id="reset-btn" class="bg-gray-600 hover:bg-gray-700 text-white px-8 py-3 rounded-full font-semibold transition transform hover:scale-105">
+                    <button id="reset-btn" class="bg-gray-600 hover:bg-gray-700 text-white px-6 lg:px-8 py-2 lg:py-3 rounded-full font-semibold transition transform hover:scale-105 text-sm lg:text-base">
                         Reset Colors
                     </button>
                 </div>
@@ -646,15 +757,15 @@
 
         <!-- Services Section -->
         <section id="services" class="page-section">
-            <h2 class="text-5xl font-bold text-center mb-12 gradient-text">Our Services</h2>
+            <h2 class="text-3xl lg:text-5xl font-bold text-center mb-12 gradient-text">Our Services</h2>
             
             <div class="grid lg:grid-cols-2 gap-8 mb-12">
-                <div class="service-card bg-white rounded-3xl shadow-xl p-8">
+                <div class="service-card bg-white rounded-3xl shadow-xl p-6 lg:p-8">
                     <div class="flex items-center gap-4 mb-6">
-                        <div class="text-6xl">🏠</div>
-                        <h3 class="text-3xl font-bold text-amber-600">Residential Painting</h3>
+                        <div class="text-4xl lg:text-6xl">🏠</div>
+                        <h3 class="text-2xl lg:text-3xl font-bold text-amber-600">Residential Painting</h3>
                     </div>
-                    <p class="text-lg text-gray-700 mb-6">Transform your home with professional painting services that bring your vision to life. From single rooms to complete home makeovers, I deliver meticulous results with minimal disruption to your daily routine.</p>
+                    <p class="text-base lg:text-lg text-gray-700 mb-6">Transform your home with professional painting services that bring your vision to life. From single rooms to complete home makeovers, I deliver meticulous results with minimal disruption to your daily routine.</p>
                     <ul class="space-y-3">
                         <li class="flex items-start gap-3"><span class="text-green-600 text-xl">✓</span><span>Interior & Exterior Painting</span></li>
                         <li class="flex items-start gap-3"><span class="text-green-600 text-xl">✓</span><span>Walls, Ceilings, Trim & Molding</span></li>
@@ -665,12 +776,12 @@
                     </ul>
                 </div>
 
-                <div class="service-card bg-white rounded-3xl shadow-xl p-8">
+                <div class="service-card bg-white rounded-3xl shadow-xl p-6 lg:p-8">
                     <div class="flex items-center gap-4 mb-6">
-                        <div class="text-6xl">🏢</div>
-                        <h3 class="text-3xl font-bold text-amber-600">Commercial Painting</h3>
+                        <div class="text-4xl lg:text-6xl">🏢</div>
+                        <h3 class="text-2xl lg:text-3xl font-bold text-amber-600">Commercial Painting</h3>
                     </div>
-                    <p class="text-lg text-gray-700 mb-6">Your business deserves a professional appearance that attracts customers and creates a positive work environment. I work efficiently to minimize business disruption while delivering exceptional results.</p>
+                    <p class="text-base lg:text-lg text-gray-700 mb-6">Your business deserves a professional appearance that attracts customers and creates a positive work environment. I work efficiently to minimize business disruption while delivering exceptional results.</p>
                     <ul class="space-y-3">
                         <li class="flex items-start gap-3"><span class="text-green-600 text-xl">✓</span><span>Office Buildings & Retail Spaces</span></li>
                         <li class="flex items-start gap-3"><span class="text-green-600 text-xl">✓</span><span>Restaurants & Hospitality</span></li>
@@ -683,56 +794,56 @@
             </div>
 
             <!-- Service Areas -->
-            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-3xl p-10 text-white text-center shadow-xl">
-                <h3 class="text-4xl font-bold mb-6">Service Areas</h3>
-                <p class="text-xl mb-6">Proudly Serving North Texas Communities</p>
-                <div class="flex flex-wrap justify-center gap-4">
-                    <span class="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full font-semibold">Rowlett</span>
-                    <span class="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full font-semibold">Rockwall</span>
-                    <span class="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full font-semibold">Garland</span>
-                    <span class="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full font-semibold">Wylie</span>
-                    <span class="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full font-semibold">Sachse</span>
-                    <span class="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full font-semibold">Dallas County</span>
-                    <span class="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full font-semibold">Rockwall County</span>
+            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-3xl p-8 lg:p-10 text-white text-center shadow-xl">
+                <h3 class="text-2xl lg:text-4xl font-bold mb-6">Service Areas</h3>
+                <p class="text-lg lg:text-xl mb-6">Proudly Serving North Texas Communities</p>
+                <div class="flex flex-wrap justify-center gap-3 lg:gap-4">
+                    <span class="bg-white/20 backdrop-blur-sm px-4 lg:px-6 py-2 lg:py-3 rounded-full font-semibold text-sm lg:text-base">Rowlett</span>
+                    <span class="bg-white/20 backdrop-blur-sm px-4 lg:px-6 py-2 lg:py-3 rounded-full font-semibold text-sm lg:text-base">Rockwall</span>
+                    <span class="bg-white/20 backdrop-blur-sm px-4 lg:px-6 py-2 lg:py-3 rounded-full font-semibold text-sm lg:text-base">Garland</span>
+                    <span class="bg-white/20 backdrop-blur-sm px-4 lg:px-6 py-2 lg:py-3 rounded-full font-semibold text-sm lg:text-base">Wylie</span>
+                    <span class="bg-white/20 backdrop-blur-sm px-4 lg:px-6 py-2 lg:py-3 rounded-full font-semibold text-sm lg:text-base">Sachse</span>
+                    <span class="bg-white/20 backdrop-blur-sm px-4 lg:px-6 py-2 lg:py-3 rounded-full font-semibold text-sm lg:text-base">Dallas County</span>
+                    <span class="bg-white/20 backdrop-blur-sm px-4 lg:px-6 py-2 lg:py-3 rounded-full font-semibold text-sm lg:text-base">Rockwall County</span>
                 </div>
             </div>
         </section>
 
         <!-- Gallery Section -->
         <section id="gallery" class="page-section">
-            <h2 class="text-5xl font-bold text-center mb-12 gradient-text">Our Work</h2>
+            <h2 class="text-3xl lg:text-5xl font-bold text-center mb-12 gradient-text">Our Work</h2>
             <div id="gallery-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
         </section>
 
         <!-- Testimonials Section -->
         <section id="testimonials" class="page-section">
-            <h2 class="text-5xl font-bold text-center mb-12 gradient-text">What Our Clients Say</h2>
+            <h2 class="text-3xl lg:text-5xl font-bold text-center mb-12 gradient-text">What Our Clients Say</h2>
             <div class="grid md:grid-cols-3 gap-6 mb-12">
-                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition">
-                    <div class="text-yellow-400 text-3xl mb-4 text-center">★★★★★</div>
-                    <p class="text-gray-700 italic mb-4 text-center">"Exceptional work! The attention to detail was remarkable. Our living room looks absolutely stunning. Highly professional and finished exactly on time."</p>
+                <div class="bg-white rounded-2xl p-6 lg:p-8 shadow-lg hover:shadow-2xl transition">
+                    <div class="text-yellow-400 text-2xl lg:text-3xl mb-4 text-center">★★★★★</div>
+                    <p class="text-gray-700 italic mb-4 text-center text-sm lg:text-base">"Exceptional work! The attention to detail was remarkable. Our living room looks absolutely stunning. Highly professional and finished exactly on time."</p>
                     <p class="font-bold text-gray-900 text-center">- Sarah P.</p>
                     <p class="text-sm text-gray-600 text-center">Rockwall, TX</p>
                 </div>
-                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition">
-                    <div class="text-yellow-400 text-3xl mb-4 text-center">★★★★★</div>
-                    <p class="text-gray-700 italic mb-4 text-center">"Professional, clean, and outstanding quality. Our office looks brand new! Will definitely use Mahnken Painting for all future projects."</p>
+                <div class="bg-white rounded-2xl p-6 lg:p-8 shadow-lg hover:shadow-2xl transition">
+                    <div class="text-yellow-400 text-2xl lg:text-3xl mb-4 text-center">★★★★★</div>
+                    <p class="text-gray-700 italic mb-4 text-center text-sm lg:text-base">"Professional, clean, and outstanding quality. Our office looks brand new! Will definitely use Mahnken Painting for all future projects."</p>
                     <p class="font-bold text-gray-900 text-center">- Michael D.</p>
                     <p class="text-sm text-gray-600 text-center">Dallas, TX</p>
                 </div>
-                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition">
-                    <div class="text-yellow-400 text-3xl mb-4 text-center">★★★★★</div>
-                    <p class="text-gray-700 italic mb-4 text-center">"Our home's exterior needed a complete refresh. Fair pricing, excellent communication, and flawless results. We couldn't be happier!"</p>
+                <div class="bg-white rounded-2xl p-6 lg:p-8 shadow-lg hover:shadow-2xl transition">
+                    <div class="text-yellow-400 text-2xl lg:text-3xl mb-4 text-center">★★★★★</div>
+                    <p class="text-gray-700 italic mb-4 text-center text-sm lg:text-base">"Our home's exterior needed a complete refresh. Fair pricing, excellent communication, and flawless results. We couldn't be happier!"</p>
                     <p class="font-bold text-gray-900 text-center">- Jessica L.</p>
                     <p class="text-sm text-gray-600 text-center">Rowlett, TX</p>
                 </div>
             </div>
 
             <!-- CTA -->
-            <div class="bg-gradient-to-r from-orange-500 to-red-600 rounded-3xl p-12 text-center text-white shadow-xl">
-                <h3 class="text-4xl font-bold mb-4">Ready to Transform Your Space?</h3>
-                <p class="text-xl mb-6">Join our satisfied customers and experience the Mahnken difference</p>
-                <button class="nav-link bg-white text-orange-600 px-10 py-4 rounded-full text-xl font-bold shadow-lg hover:bg-gray-100 transition transform hover:scale-105" data-target="contact">
+            <div class="bg-gradient-to-r from-orange-500 to-red-600 rounded-3xl p-8 lg:p-12 text-center text-white shadow-xl">
+                <h3 class="text-2xl lg:text-4xl font-bold mb-4">Ready to Transform Your Space?</h3>
+                <p class="text-lg lg:text-xl mb-6">Join our satisfied customers and experience the Mahnken difference</p>
+                <button class="nav-link bg-white text-orange-600 px-8 lg:px-10 py-3 lg:py-4 rounded-full text-lg lg:text-xl font-bold shadow-lg hover:bg-gray-100 transition transform hover:scale-105" data-target="contact">
                     Get Your Free Estimate Today
                 </button>
             </div>
@@ -740,18 +851,18 @@
 
         <!-- About Section -->
         <section id="about" class="page-section">
-            <h2 class="text-5xl font-bold text-center mb-12 gradient-text">About Mahnken Painting & More</h2>
+            <h2 class="text-3xl lg:text-5xl font-bold text-center mb-12 gradient-text">About Mahnken Painting & More</h2>
             
-            <div class="bg-white rounded-3xl shadow-xl p-10 mb-12">
+            <div class="bg-white rounded-3xl shadow-xl p-6 lg:p-10 mb-12">
                 <div class="max-w-4xl mx-auto">
-                    <h3 class="text-3xl font-bold mb-6 text-center">Your Personal Painting Professional</h3>
-                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    <h3 class="text-2xl lg:text-3xl font-bold mb-6 text-center">Your Personal Painting Professional</h3>
+                    <p class="text-base lg:text-lg text-gray-700 leading-relaxed mb-6">
                         Mahnken Painting & More is built on a foundation of passion, precision, and personalized service. As a single-person operation, I'm personally involved in every aspect of your project—from the initial consultation and estimate to the final brushstroke.
                     </p>
-                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    <p class="text-base lg:text-lg text-gray-700 leading-relaxed mb-6">
                         This hands-on approach ensures a level of quality control and attention to detail that larger crews simply cannot match. When you hire Mahnken Painting & More, you're not just getting a painter—you're getting a dedicated professional who takes pride in every project and treats your property as if it were their own.
                     </p>
-                    <p class="text-lg text-gray-700 leading-relaxed">
+                    <p class="text-base lg:text-lg text-gray-700 leading-relaxed">
                         Based in Rowlett, I proudly serve the entire Dallas-Rockwall area. My commitment is simple: exceed your expectations and leave you with a space you'll love for years to come.
                     </p>
                 </div>
@@ -759,74 +870,74 @@
 
             <!-- Credentials -->
             <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-blue-600 text-white rounded-2xl p-8 text-center hover:shadow-2xl transition">
-                    <div class="text-6xl mb-4">🏆</div>
-                    <h4 class="text-2xl font-bold mb-3">Chamber Accredited</h4>
-                    <p class="text-white text-opacity-90">Official member of both Rowlett and U.S. Chamber of Commerce, demonstrating commitment to business excellence and community standards.</p>
+                <div class="bg-blue-600 text-white rounded-2xl p-6 lg:p-8 text-center hover:shadow-2xl transition">
+                    <div class="text-4xl lg:text-6xl mb-4">🏆</div>
+                    <h4 class="text-xl lg:text-2xl font-bold mb-3">Chamber Accredited</h4>
+                    <p class="text-white text-opacity-90 text-sm lg:text-base">Official member of both Rowlett and U.S. Chamber of Commerce, demonstrating commitment to business excellence and community standards.</p>
                 </div>
-                <div class="bg-green-600 text-white rounded-2xl p-8 text-center hover:shadow-2xl transition">
-                    <div class="text-6xl mb-4">🛡️</div>
-                    <h4 class="text-2xl font-bold mb-3">Licensed & Insured</h4>
-                    <p class="text-white text-opacity-90">Fully licensed and insured for your peace of mind and protection on every project, residential or commercial.</p>
+                <div class="bg-green-600 text-white rounded-2xl p-6 lg:p-8 text-center hover:shadow-2xl transition">
+                    <div class="text-4xl lg:text-6xl mb-4">🛡️</div>
+                    <h4 class="text-xl lg:text-2xl font-bold mb-3">Licensed & Insured</h4>
+                    <p class="text-white text-opacity-90 text-sm lg:text-base">Fully licensed and insured for your peace of mind and protection on every project, residential or commercial.</p>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
         <section id="contact" class="page-section">
-            <h2 class="text-5xl font-bold text-center mb-12 gradient-text">Get Your Free Estimate</h2>
+            <h2 class="text-3xl lg:text-5xl font-bold text-center mb-12 gradient-text">Get Your Free Estimate</h2>
             
-            <div class="max-w-3xl mx-auto bg-white rounded-3xl shadow-xl p-10 mb-8">
-                <p class="text-xl text-gray-700 text-center mb-8">
+            <div class="max-w-3xl mx-auto bg-white rounded-3xl shadow-xl p-6 lg:p-10 mb-8">
+                <p class="text-lg lg:text-xl text-gray-700 text-center mb-8">
                     Ready to bring your vision to life? Contact me today for a free, no-obligation estimate. I look forward to discussing your project!
                 </p>
 
                 <!-- Contact Methods -->
                 <div class="flex justify-center mb-8">
-                    <a href="tel:9722678208" class="flex items-center justify-center gap-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition transform hover:scale-105 w-full max-w-md">
-                        <span class="text-4xl">📞</span>
+                    <a href="tel:9722678208" class="flex items-center justify-center gap-3 lg:gap-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white p-4 lg:p-6 rounded-2xl shadow-lg hover:shadow-xl transition transform hover:scale-105 w-full max-w-md">
+                        <span class="text-3xl lg:text-4xl">📞</span>
                         <div class="text-center">
-                            <div class="text-sm font-semibold">Call or Text</div>
-                            <div class="text-xl font-bold">(972) 267-8208</div>
+                            <div class="text-xs lg:text-sm font-semibold">Call or Text</div>
+                            <div class="text-lg lg:text-xl font-bold">(972) 267-8208</div>
                         </div>
                     </a>
                 </div>
 
                 <!-- Business Info -->
                 <div class="text-center space-y-3 text-gray-700 border-t pt-8">
-                    <p class="flex flex-col sm:flex-row items-center justify-center gap-2 text-lg">
-                        <span class="text-2xl">📧</span>
-                        <a href="mailto:mahnkenpaintingnmore@gmail.com" class="text-blue-600 hover:text-blue-800 hover:underline font-semibold break-all">mahnkenpaintingnmore@gmail.com</a>
+                    <p class="flex flex-col sm:flex-row items-center justify-center gap-2 text-base lg:text-lg">
+                        <span class="text-xl lg:text-2xl">📧</span>
+                        <a href="mailto:mahnkenpaintingnmore@gmail.com" class="text-blue-600 hover:text-blue-800 hover:underline font-semibold break-all text-sm lg:text-base">mahnkenpaintingnmore@gmail.com</a>
                     </p>
-                    <p class="flex flex-col sm:flex-row items-center justify-center gap-2 text-lg">
-                        <span class="text-2xl">📍</span>
-                        <span class="text-center sm:text-left">3301 Oxford Dr, Rowlett, TX 75088</span>
+                    <p class="flex flex-col sm:flex-row items-center justify-center gap-2 text-base lg:text-lg">
+                        <span class="text-xl lg:text-2xl">📍</span>
+                        <span class="text-center sm:text-left text-sm lg:text-base">3301 Oxford Dr, Rowlett, TX 75088</span>
                     </p>
-                    <p class="flex flex-col sm:flex-row items-center justify-center gap-2 text-lg">
-                        <span class="text-2xl">🕐</span>
-                        <span class="text-center sm:text-left">Monday - Saturday: 7 AM - 7 PM</span>
+                    <p class="flex flex-col sm:flex-row items-center justify-center gap-2 text-base lg:text-lg">
+                        <span class="text-xl lg:text-2xl">🕐</span>
+                        <span class="text-center sm:text-left text-sm lg:text-base">Monday - Saturday: 7 AM - 7 PM</span>
                     </p>
-                    <p class="flex flex-col sm:flex-row items-center justify-center gap-2 text-lg">
-                        <span class="text-2xl">📱</span>
-                        <span class="text-center sm:text-left">Available for Emergency Services</span>
+                    <p class="flex flex-col sm:flex-row items-center justify-center gap-2 text-base lg:text-lg">
+                        <span class="text-xl lg:text-2xl">📱</span>
+                        <span class="text-center sm:text-left text-sm lg:text-base">Available for Emergency Services</span>
                     </p>
                 </div>
 
                 <!-- Social Links -->
-                <div class="flex justify-center gap-4 mt-8">
-                    <a href="https://www.facebook.com/share/17FGWWyKcs/" target="_blank" class="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition">
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+                    <a href="https://www.facebook.com/share/17FGWWyKcs/" target="_blank" class="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition text-center">
                         Facebook
                     </a>
-                    <a href="https://cca.rowlettchamber.com/mahnken-painting-more-__1_157_10009561_memberprofile2.aspx" target="_blank" class="bg-amber-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-amber-700 transition">
+                    <a href="https://cca.rowlettchamber.com/mahnken-painting-more-__1_162_10009561_memberprofile2.aspx" target="_blank" class="bg-amber-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-amber-700 transition text-center">
                         Chamber Profile
                     </a>
                 </div>
             </div>
 
             <!-- Request Estimate Form -->
-            <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl p-10">
-                <h3 class="text-3xl font-bold text-center mb-6 text-gray-900">Request an Estimate Online</h3>
-                <p class="text-center text-gray-600 mb-6">Fill out the form below and I'll get back to you within 24 hours</p>
+            <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl p-6 lg:p-10">
+                <h3 class="text-2xl lg:text-3xl font-bold text-center mb-6 text-gray-900">Request an Estimate Online</h3>
+                <p class="text-center text-gray-600 mb-6 text-sm lg:text-base">Fill out the form below and I'll get back to you within 24 hours</p>
                 <div class="rounded-2xl overflow-hidden shadow-inner">
                     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd65py6zcHQ-C8b1bIIH2NevfjuMQGdwwlnb46d-If8PFcriw/viewform?embedded=true" width="100%" height="1200" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
                 </div>
@@ -838,9 +949,9 @@
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-8 mt-16">
         <div class="container mx-auto px-6 text-center">
-            <p class="text-lg mb-2">&copy; <span id="year"></span> Mahnken Painting & More. All Rights Reserved.</p>
-            <p class="text-sm text-gray-400 mb-4">Licensed, Insured & Chamber Accredited</p>
-            <p class="text-sm text-gray-500">Designed & Developed by <a href="mailto:Info@manpasand.com" class="text-amber-500 hover:text-amber-400 transition">Info@manpasand.com</a></p>
+            <p class="text-base lg:text-lg mb-2">&copy; <span id="year"></span> Mahnken Painting & More. All Rights Reserved.</p>
+            <p class="text-xs lg:text-sm text-gray-400 mb-4">Licensed, Insured & Chamber Accredited</p>
+            <p class="text-xs lg:text-sm text-gray-500">Designed & Developed by <a href="mailto:Info@manpasand.com" class="text-amber-500 hover:text-amber-400 transition">Info@manpasand.com</a></p>
         </div>
     </footer>
 
@@ -853,6 +964,36 @@
     </div>
 
     <script>
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        mobileMenuClose.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                const target = link.dataset.target;
+                if (target) {
+                    showSection(target);
+                    hamburger.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+
         // Gallery data
         const galleryData = [
             { type: 'single', src: 'https://lh3.googleusercontent.com/d/1-jPPoZYP3ucqCiIfBJ5l09At6UJS2H3s', alt: 'Living room transformation' },
