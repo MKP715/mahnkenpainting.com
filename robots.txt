@@ -1,0 +1,460 @@
+# Robots.txt for Mahnken Painting & More
+# Website: https://mahnkenpainting.com
+# This file allows all search engines and AI crawlers to index our content
+
+# Universal Rules for All Bots
+User-agent: *
+Allow: /
+Crawl-delay: 0
+
+# Sitemap Location
+Sitemap: https://mahnkenpainting.com/sitemap.xml
+Sitemap: https://www.mahnkenpainting.com/sitemap.xml
+Sitemap: http://mahnkenpainting.com/sitemap.xml
+Sitemap: http://www.mahnkenpainting.com/sitemap.xml
+
+# Google Search Engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Mobile
+Allow: /
+
+User-agent: Googlebot-News
+Allow: /
+
+User-agent: Googlebot-Video
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Google-InspectionTool
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
+User-agent: AdsBot-Google-Mobile
+Allow: /
+
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: APIs-Google
+Allow: /
+
+User-agent: Storebot-Google
+Allow: /
+
+User-agent: Google-Site-Verification
+Allow: /
+
+# Bing/Microsoft Search Engines
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
+
+User-agent: BingPreview
+Allow: /
+
+User-agent: msnbot
+Allow: /
+
+User-agent: msnbot-media
+Allow: /
+
+User-agent: adidxbot
+Allow: /
+
+# Yahoo Search Engine
+User-agent: Slurp
+Allow: /
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 0
+
+# Yandex (Russian Search Engine)
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 0
+
+User-agent: YandexImages
+Allow: /
+
+User-agent: YandexVideo
+Allow: /
+
+User-agent: YandexMedia
+Allow: /
+
+User-agent: YandexBlogs
+Allow: /
+
+# Baidu (Chinese Search Engine)
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 0
+
+User-agent: Baiduspider-image
+Allow: /
+
+User-agent: Baiduspider-video
+Allow: /
+
+User-agent: Baiduspider-news
+Allow: /
+
+# Sogou (Chinese Search Engine)
+User-agent: Sogou
+Allow: /
+
+User-agent: Sogou web spider
+Allow: /
+
+User-agent: Sogou inst spider
+Allow: /
+
+User-agent: Sogou spider2
+Allow: /
+
+# 360 Search (Chinese Search Engine)
+User-agent: 360Spider
+Allow: /
+
+# Naver (Korean Search Engine)
+User-agent: Yeti
+Allow: /
+
+# AI Language Models and Chatbots
+User-agent: GPTBot
+Allow: /
+Crawl-delay: 0
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ChatGPT-User-Agent
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Perplexity
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: AI2Bot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+# Apple
+User-agent: Applebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Social Media Crawlers
+User-agent: facebot
+Allow: /
+
+User-agent: FacebookExternalHit
+Allow: /
+
+User-agent: Facebot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Pinterest
+Allow: /
+
+User-agent: Pinterestbot
+Allow: /
+
+User-agent: redditbot
+Allow: /
+
+User-agent: Slackbot
+Allow: /
+
+User-agent: Slackbot-LinkExpanding
+Allow: /
+
+User-agent: Discordbot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+User-agent: SkypeUriPreview
+Allow: /
+
+User-agent: Quora-Bot
+Allow: /
+
+User-agent: quora link preview
+Allow: /
+
+User-agent: ViberBot
+Allow: /
+
+User-agent: SnapchatBot
+Allow: /
+
+User-agent: TikTokBot
+Allow: /
+
+User-agent: InstagramBot
+Allow: /
+
+# SEO and Analytics Tools
+User-agent: AhrefsBot
+Allow: /
+Crawl-delay: 0
+
+User-agent: SemrushBot
+Allow: /
+Crawl-delay: 0
+
+User-agent: MJ12bot
+Allow: /
+
+User-agent: DotBot
+Allow: /
+
+User-agent: Rogerbot
+Allow: /
+
+User-agent: SeznamBot
+Allow: /
+
+User-agent: MojeekBot
+Allow: /
+
+User-agent: archive.org_bot
+Allow: /
+
+User-agent: ia_archiver
+Allow: /
+
+User-agent: Wayback
+Allow: /
+
+User-agent: Screaming Frog SEO Spider
+Allow: /
+
+User-agent: BLEXBot
+Allow: /
+
+User-agent: SiteAuditBot
+Allow: /
+
+# E-commerce and Business Directories
+User-agent: YelpBot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# News Aggregators
+User-agent: Feedfetcher-Google
+Allow: /
+
+User-agent: Feedly
+Allow: /
+
+# ByteDance/TikTok
+User-agent: Bytespider
+Allow: /
+
+User-agent: ByteBot
+Allow: /
+
+# Huawei
+User-agent: PetalBot
+Allow: /
+
+# You.com
+User-agent: YouBot
+Allow: /
+
+# Brave Search
+User-agent: Brave-Ads-Crawler
+Allow: /
+
+# Qwant (European Search Engine)
+User-agent: Qwantify
+Allow: /
+
+# Ecosia (Green Search Engine)
+User-agent: EcosiaBot
+Allow: /
+
+# Other Important Crawlers
+User-agent: Exabot
+Allow: /
+
+User-agent: MegaIndex
+Allow: /
+
+User-agent: Mail.RU_Bot
+Allow: /
+
+User-agent: Pinterestbot
+Allow: /
+
+User-agent: proximic
+Allow: /
+
+User-agent: scrapy
+Allow: /
+
+User-agent: VoilaBot
+Allow: /
+
+User-agent: Yanga
+Allow: /
+
+User-agent: Yeti
+Allow: /
+
+User-agent: spbot
+Allow: /
+
+User-agent: TinEye
+Allow: /
+
+User-agent: WBSearchBot
+Allow: /
+
+User-agent: Yahoo-MMCrawler
+Allow: /
+
+User-agent: YahooSeeker
+Allow: /
+
+User-agent: YahooSeeker-Testing
+Allow: /
+
+User-agent: Teoma
+Allow: /
+
+User-agent: SurveyBot
+Allow: /
+
+User-agent: psbot
+Allow: /
+
+User-agent: OutclicksBot
+Allow: /
+
+User-agent: Nutch
+Allow: /
+
+User-agent: Gigabot
+Allow: /
+
+User-agent: findlinks
+Allow: /
+
+User-agent: CatchBot
+Allow: /
+
+User-agent: CareerBot
+Allow: /
+
+User-agent: BecomeBot
+Allow: /
+
+User-agent: Ask Jeeves
+Allow: /
+
+User-agent: ArchiveBot
+Allow: /
+
+User-agent: alexa
+Allow: /
+
+User-agent: omgili
+Allow: /
+
+User-agent: omgilibot
+Allow: /
+
+# Price Comparison and Shopping Bots
+User-agent: Shopify-Partner
+Allow: /
+
+User-agent: Googlebot-Mobile
+Allow: /
+
+# Local Business and Map Crawlers
+User-agent: LocalBot
+Allow: /
+
+# Academic and Research Crawlers
+User-agent: CiteSeerXBot
+Allow: /
+
+User-agent: ScholarBot
+Allow: /
+
+# General Settings
+# Allow all well-behaved crawlers
+User-agent: *
+Allow: /
+Crawl-delay: 1
+
+# Important Notes:
+# - This robots.txt allows ALL legitimate search engines and AI crawlers
+# - All URLs are indexable including anchor links (#services, #gallery, etc.)
+# - Multiple sitemap URLs provided for maximum compatibility
+# - Crawl-delay set to 0 or 1 for faster indexing
+# - No disallow rules - everything is accessible
+# - Designed for maximum SEO visibility for painting and handyman services in DFW area
